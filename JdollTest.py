@@ -1,4 +1,5 @@
 from ursina import *
+from ursina import texture
 from ursina.prefabs.first_person_controller import FirstPersonController
 
 app = Ursina()
@@ -6,6 +7,8 @@ app = Ursina()
 
 window.fps_counter.enabled = False
 window.exit_button.visible = False
+mansion = Entity(model="assets/Mansion.obj", texture = "assets/Mansion")
+
 
 
 class Voxel(Button):
@@ -15,17 +18,7 @@ class Voxel(Button):
 			position = position,
 			model = 'assets/block',
 			origin_y = 0.5,
-			#color = color.color(0,0,random.uniform(0.20,1)),
 			scale = 0.5)
-
-
-class Sky(Entity):
-	def __init__(self):
-		super().__init__(
-			parent = scene,
-			model = 'sphere',
-			scale = 150,
-			double_sided = True)
 
 
 for z in range(40):
